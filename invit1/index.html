@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="wave.png" class="wave">
+
+  <div class="peoples">
+     <div class="people">
+         <div class="people-name">Anthony</div>
+             <div class="people-bar">
+                 <div class="people-per" per="80"></div>
+             </div>
+         </div>
+     
+     <div class="people">
+        <div class="people-name">Abhishek</div>
+            <div class="people-bar">
+                <div class="people-per" per="45"></div>
+            </div>
+        </div>
+    
+    <div class="people">
+        <div class="people-name">Mick</div>
+            <div class="people-bar">
+                <div class="people-per" per="30"></div>
+            </div>
+        </div>
+    </div>
+  <script>
+      $('.people-per').each(function(){
+       var $this = $(this);
+       var per = $this.attr('per');
+       $this.css("width",per+ '%');
+       $({animatedValue: 0}).animate({animatedValue: per},
+       {duration: 1000,
+         step: function(){
+             $this.attr('per', Math.floor(this.animatedValue) + '%');
+
+         },
+         complete:function(){
+             $this.attr('per',Math.floor(this.animatedValue) + '%');
+
+         }})
+      });
+  </script>
+</body>
+</html>
